@@ -91,6 +91,6 @@ input[type='checkbox']:checked{
     outline: none;
 }
 
-.checkedAcept{
+.checked-accept{
     background-color: red;
 }
