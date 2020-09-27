@@ -79,8 +79,14 @@ input[type='checkbox']{
     height: 30px;
     border-radius: 100%;
     border: 2px solid white;
+    outline: none;
 }
 
 input[type='checkbox']:checked{
     background: greenyellow;
+    outline: none;
+}
+
+.checked-accept{
+    background-color: red;
 }
