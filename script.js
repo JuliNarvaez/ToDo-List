@@ -1,4 +1,4 @@
-const elements = document.querySelectorAll(".container__content-item");
+const elements = document.querySelectorAll(".item");
 
 elements.forEach(element => {
     const checkbox = element.querySelector("input");
