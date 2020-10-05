@@ -1,5 +1,6 @@
 const container = document.querySelector(".container__content");
 
+
 function render(e) {
     e.forEach(toDo => {
         const template = `
@@ -25,30 +26,44 @@ function render(e) {
     })
 }
 
+/* const getData = (filter) => fetch('./data/MOCK_DATA.json')
+.then(response => response.json())
+.then(filterAll); */
+let variableArr;
+
 fetch('./data/MOCK_DATA.json')
     .then(response => response.json())
-    .then(filtrar);
+    .then(data => {
+        filterAll(data, "button-all")
+        variableArr = data;
+    });
 
 const filterButtons = document.querySelectorAll("button");
+
+
 filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', () => { 
+        filterButtons.forEach(btn => {
+            btn.classList.remove("button-pressed");
+        })
+        console.log(filterButtons);
         button.classList.toggle("button-pressed");
-        filtrar([],button.classList[0]);
+        container.innerHTML = "";
+        filterAll(variableArr, button.classList[0]);
     });
 });
 
-function filtrar(f) {
+
+function filterAll(f, b) {
     var complete = f.filter(function (done) {
-        switch ("button-all") {
+        switch (b) {
             case "button-all":
                 return done.done == done.done;
             case "button-completed":
                 return done.done == true;
             case "button-incomplete":
                 return done.done == false;
-            }
+        }
     })
     render(complete);
 };
-
- 
