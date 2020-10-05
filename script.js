@@ -1,6 +1,5 @@
 const container = document.querySelector(".container__content");
 
-
 function render(e) {
     e.forEach(toDo => {
         const template = `
@@ -24,11 +23,8 @@ function render(e) {
         })
         container.appendChild(card);
     })
-}
+};
 
-/* const getData = (filter) => fetch('./data/MOCK_DATA.json')
-.then(response => response.json())
-.then(filterAll); */
 let variableArr;
 
 fetch('./data/MOCK_DATA.json')
@@ -40,19 +36,16 @@ fetch('./data/MOCK_DATA.json')
 
 const filterButtons = document.querySelectorAll("button");
 
-
 filterButtons.forEach(button => {
     button.addEventListener('click', () => { 
         filterButtons.forEach(btn => {
             btn.classList.remove("button-pressed");
-        })
-        console.log(filterButtons);
+        });
         button.classList.toggle("button-pressed");
         container.innerHTML = "";
         filterAll(variableArr, button.classList[0]);
     });
 });
-
 
 function filterAll(f, b) {
     var complete = f.filter(function (done) {
@@ -64,6 +57,6 @@ function filterAll(f, b) {
             case "button-incomplete":
                 return done.done == false;
         }
-    })
+    });
     render(complete);
 };
