@@ -29,7 +29,7 @@ body {
     justify-content: center;
 }
 
-.container__filter{
+.filters{
     background-color: #764ba2;
     display: flex;
     justify-content: center;
@@ -46,6 +46,7 @@ button{
     cursor: pointer;
     outline: none;
 }
+
 button:hover{
     background-color: rgba(255, 255, 255, 0.3);
 }
