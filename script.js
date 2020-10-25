@@ -35,18 +35,14 @@ fetch('./data/MOCK_DATA.json')
         render(data);
     });
 
-const filterButtons = document.querySelectorAll("button");
-
 function filterAll(element) {
-    filterButtons.forEach(button => {
-        button.classList.remove("button-pressed");
-    });
+    document.querySelector(".button-pressed").classList.remove("button-pressed");
     element.classList.add("button-pressed");
     container.innerHTML = "";
     var complete = variableArr.filter(function ({done}) {
         switch (element.value) {
             case "all":
-                return done;
+                return true;
             case "completed":
                 return done == true;
             case "incomplete":
