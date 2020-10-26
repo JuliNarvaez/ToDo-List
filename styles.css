@@ -29,6 +29,33 @@ body {
     justify-content: center;
 }
 
+.filters{
+    background-color: #764ba2;
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border: 2px solid white;
+    margin: 0px 20px;
+    font-size: 25px;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.button-pressed, .button-pressed:hover {
+    background-color: salmon;
+    color: #764ba2;
+}
+
 .container__content{
     background-image: linear-gradient(0deg, #667eea 0%, #764ba2 100%);
     border-radius: 0px 0px 25px 25px;
@@ -88,5 +115,7 @@ input[type='checkbox']:checked{
 }
 
 .checked-accept{
-    background-color: red;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 2px solid greenyellow;
+    color: indigo;
 }
