@@ -1,4 +1,5 @@
 const container = document.querySelector(".container__content");
+const url = 'http://localhost:3000';
 
 function render(todos) {
     todos.forEach(toDo => {
@@ -28,18 +29,82 @@ function render(todos) {
 
 let variableArr;
 
-fetch('./data/MOCK_DATA.json')
+fetch(url)
     .then(response => response.json())
     .then(data => {
         variableArr = data;
         render(data);
     });
 
+const dataprueba = {
+    title: "tu madre en el id 1",
+    destails: "aserejé ajá dejé",
+    done: false,
+    id: 1
+};
+
+function postElement() {
+    fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify(dataprueba)
+        })
+        .then(response => response.json())
+        .then(console.log);
+}
+
+function putElement() {
+    fetch(url, {
+            method: 'PUT',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+
+            },
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify(dataprueba)
+        })
+        .then(response => response.json())
+        .then(console.log)
+        .catch(console.log);
+}
+
+function deleteElement() {
+    fetch(url, {
+            method: 'DELETE',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+
+            },
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify(dataprueba)
+        })
+        .then(response => response.json())
+        .then(console.log)
+        .catch(console.log);
+}
+
 function filterAll(element) {
     document.querySelector(".button-pressed").classList.remove("button-pressed");
     element.classList.add("button-pressed");
     container.innerHTML = "";
-    var complete = variableArr.filter(function ({done}) {
+    var complete = variableArr.filter(function ({
+        done
+    }) {
         switch (element.value) {
             case "all":
                 return true;
