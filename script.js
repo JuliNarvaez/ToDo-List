@@ -28,7 +28,7 @@ function render(todos) {
 
 let variableArr;
 
-fetch('./data/MOCK_DATA.json')
+fetch('http://localhost:3000')
     .then(response => response.json())
     .then(data => {
         variableArr = data;
